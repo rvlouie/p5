@@ -5,7 +5,7 @@ var ellipseWidth = 50;
 var xCenter = window.innerWidth/2;
 var yCenter = window.innerHeight/2;
 var level
-
+var soundFileAmplitude
 
 var oscFreq = Math.floor((Math.random() * 2000) + 150);
 
@@ -28,6 +28,10 @@ function setup() {
   createCanvas(windowWidth, height);
 
   osc =   new p5.Oscillator(oscFreq, 'triangle')
+
+  soundFileAmplitude = new p5.Amplitude();
+
+  soundFileAmplitude.setInput(testSample);
 
 }
 
@@ -54,9 +58,7 @@ function mouseClicked() {
 
 var waveform = function() {
 
-  var soundFileAmplitude = new p5.Amplitude();
 
-  soundFileAmplitude.setInput(testSample);
 
   var level = soundFileAmplitude.getLevel();
 
